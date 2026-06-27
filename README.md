@@ -12,8 +12,8 @@ O objetivo deste projeto é dominar os fundamentos de estruturas de dados, imple
 ## 🗺️ Mapa da Trilha
 
 ### 🧱 Fase 1: Estruturas Lineares
-- [ ] **Pilha (Stack)** - Conceito LIFO (*Last In, First Out*) | ⏳ *Em andamento*
-- [ ] **Fila (Queue)** - Conceito FIFO (*First In, First Out*)
+- [x] **Pilha (Stack)** - Conceito LIFO (*Last In, First Out*)
+- [ ] **Fila (Queue)** - Conceito FIFO (*First In, First Out*)  | ⏳ *Em andamento*
 - [ ] **Lista Encadeada (Linked List)** - Nós e referências de memória
 - [ ] **Lista Duplamente Encadeada (Doubly Linked List)**
 
