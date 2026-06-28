@@ -15,10 +15,10 @@ O objetivo deste projeto é dominar os fundamentos de estruturas de dados, imple
 - [x] **Pilha (Stack)** - Conceito LIFO (*Last In, First Out*)
 - [x] **Fila (Queue)** - Conceito FIFO (*First In, First Out*) 
 - [x] **Lista Encadeada (Linked List)** - Nós e referências de memória
-- [ ] **Lista Duplamente Encadeada (Doubly Linked List)**  | ⏳ *Em andamento*
+- [x] **Lista Duplamente Encadeada (Doubly Linked List)**
 
 ### 🔍 Fase 2: Busca e Ordenação (Algoritmos)
-- [ ] **Bubble Sort / Insertion Sort** - Ordenações simples
+- [ ] **Bubble Sort / Insertion Sort** - Ordenações simples  | ⏳ *Em andamento*
 - [ ] **Merge Sort / Quick Sort** - Algoritmos de divisão e conquista
 - [ ] **Busca Binária (Binary Search)** - Busca performática em arrays ordenados
 
