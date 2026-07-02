@@ -20,7 +20,7 @@ O objetivo deste projeto é dominar os fundamentos de estruturas de dados, imple
 ### 🔍 Fase 2: Busca e Ordenação (Algoritmos)
 - [ ] **Bubble Sort / Insertion Sort** - Ordenações simples  | ⏳ *Em andamento*
 - [ ] **Merge Sort / Quick Sort** - Algoritmos de divisão e conquista
-- [ ] **Busca Binária (Binary Search)** - Busca performática em arrays ordenados
+- [x] **Busca Binária (Binary Search)** - Busca performática em arrays ordenados
 
 ### 🔑 Fase 3: Estruturas Associativas
 - [ ] **Tabelas Hash (Hash Maps)** - Entendendo colisões e chaves/valores
