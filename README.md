@@ -18,8 +18,8 @@ O objetivo deste projeto é dominar os fundamentos de estruturas de dados, imple
 - [x] **Lista Duplamente Encadeada (Doubly Linked List)**
 
 ### 🔍 Fase 2: Busca e Ordenação (Algoritmos)
-- [ ] **Bubble Sort / Insertion Sort** - Ordenações simples  | ⏳ *Em andamento - Insertion Sort*
-- [ ] **Merge Sort / Quick Sort** - Algoritmos de divisão e conquista
+- [x] **Bubble Sort / Insertion Sort** - Ordenações simples
+- [ ] **Merge Sort / Quick Sort** - Algoritmos de divisão e conquista  | ⏳ *Em andamento*
 - [x] **Busca Binária (Binary Search)** - Busca performática em arrays ordenados
 
 ### 🔑 Fase 3: Estruturas Associativas
