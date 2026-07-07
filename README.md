@@ -19,11 +19,11 @@ O objetivo deste projeto é dominar os fundamentos de estruturas de dados, imple
 
 ### 🔍 Fase 2: Busca e Ordenação (Algoritmos)
 - [x] **Bubble Sort / Insertion Sort** - Ordenações simples
-- [x] **Merge Sort / Quick Sort** - Algoritmos de divisão e conquista  | ⏳ *Em andamento - Quick Sort*
+- [x] **Merge Sort / Quick Sort** - Algoritmos de divisão e conquista 
 - [x] **Busca Binária (Binary Search)** - Busca performática em arrays ordenados
 
 ### 🔑 Fase 3: Estruturas Associativas
-- [ ] **Tabelas Hash (Hash Maps)** - Entendendo colisões e chaves/valores
+- [ ] **Tabelas Hash (Hash Maps)** - Entendendo colisões e chaves/valores | ⏳ *Em andamento*
 - [ ] **Conjuntos (Sets)** - Estruturas de elementos únicos
 
 ### 🌳 Fase 4: Estruturas Não-Lineares (Avançado)
