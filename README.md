@@ -23,8 +23,8 @@ O objetivo deste projeto é dominar os fundamentos de estruturas de dados, imple
 - [x] **Busca Binária (Binary Search)** - Busca performática em arrays ordenados
 
 ### 🔑 Fase 3: Estruturas Associativas
-- [ ] **Tabelas Hash (Hash Maps)** - Entendendo colisões e chaves/valores | ⏳ *Em andamento*
-- [ ] **Conjuntos (Sets)** - Estruturas de elementos únicos
+- [x] **Tabelas Hash (Hash Maps)** - Entendendo colisões e chaves/valores 
+- [ ] **Conjuntos (Sets)** - Estruturas de elementos únicos | ⏳ *Em andamento*
 
 ### 🌳 Fase 4: Estruturas Não-Lineares (Avançado)
 - [ ] **Árvore Binária de Busca (BST)** - Estruturas hierárquicas e travessia
