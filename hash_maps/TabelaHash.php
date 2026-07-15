@@ -8,9 +8,18 @@ class TabelaHash
     // Construtor: define o tamanho e inicializa a tabela com posições vazias
     public function __construct(int $tamanho = 10)
     {
+        if($tamanho < 1){
+            throw new InvalidArgumentException(
+                'O tamanho da tabela deve ser maior que zero.'
+            );
+        }
+
         $this->tamanho = $tamanho;
-        $this->tabela = array_fill(0, $tamanho, []); // Cria o array preenchido com sub-arrays vazios
+        for($i = 0; $i < $this->tamanho; $i++){
+            $this->tabela[$i] = [];  // Cria o array preenchido com sub-arrays vazios
+        }
     }
+
 
     /**
      * Transforma uma string em um índice numérico válido para o array interno.
