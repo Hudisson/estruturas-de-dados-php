@@ -77,4 +77,69 @@ class Conjunto
     {
         return $this->elementosUnicos;
     }
+
+    /**
+     * Retorna um novo Conjunto contendo a união deste conjunto com outro.
+     */
+    public function uniao(Conjunto $outro): Conjunto
+    {
+        $novoConjunto = new Conjunto();
+
+        // Adiciona todos os elementos deste conjunto ($this) no $novoConjunto
+        foreach($this->obterElementos() as $elemento){
+            $novoConjunto->adicionar($elemento);
+        }
+
+        // Adiciona todos os elementos do $outro conjunto no $novoConjunto
+        foreach($outro->obterElementos() as $elemento){
+            $novoConjunto->adicionar($elemento);
+        }
+
+        return $novoConjunto;
+    }
+
+    /**
+     * Retorna um novo Conjunto contendo apenas os elementos que existem em ambos.
+     */
+    public function intersecao(Conjunto $outro): Conjunto
+    {
+        $novoConjunto = new Conjunto();
+
+        // Percorre os elementos deste ($this) conjunto
+        foreach($this->obterElementos() as $elemento){
+            // Se o $outro conjunto também 'contem' o elemento, adiciona-o ao $novoConjunto
+            if( $outro->contem($elemento )){
+                $novoConjunto->adicionar($elemento);
+            }
+        }
+
+        return $novoConjunto;
+    }
+
+    /**
+     * Retorna um novo Conjunto contendo os elementos que existem apenas neste,
+     * mas NÃO existem no outro. 
+     * 
+     * Ex.: 
+     * A = [1, 2, 3]; 
+     * B = [1, 5, 7];
+     * 
+     * A - B = [2,3] Todos que tem em A e não tem em B
+     * 
+     * B - A = [5,7] Todos que tem em B e não tem em A
+     */
+    public function diferenca(Conjunto $outro): Conjunto
+    {
+        $novoConjunto = new Conjunto();
+
+        // Percorra os elementos deste conjunto ($this)
+        foreach($this->obterElementos() as $elemento){
+            // Se o $outro conjunto NÃO 'contem' o elemento, adiciona-o ao $novoConjunto
+            if( ! $outro->contem($elemento)){
+                $novoConjunto->adicionar($elemento);
+            }
+        }
+
+        return $novoConjunto;
+    }
 }
