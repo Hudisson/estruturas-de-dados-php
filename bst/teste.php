@@ -29,3 +29,26 @@ echo "Busca por 70: " . ($arvore->buscar(70) ? "Encontrado!" : "Não encontrado"
 // Testes de elementos que NÃO EXISTEM
 echo "Busca por 99: " . ($arvore->buscar(99) ? "Encontrado!" : "Não encontrado") . "\n";
 echo "Busca por 10: " . ($arvore->buscar(10) ? "Encontrado!" : "Não encontrado") . "\n";
+
+echo "\n--- Percursos ---\n";
+
+// Em Ordem DEVE imprimir:(Ordenado!)
+echo "Em-Ordem  (E -> R -> D): [";
+foreach ($arvore->emOrdem() as $valor){
+    echo " $valor "; 
+}
+echo " ]\n";
+
+// Em Pré Ordem 
+echo "Pré-Ordem (R -> E -> D): [";
+foreach ($arvore->preOrdem() as $valor){
+    echo " $valor "; 
+}
+echo " ]\n";
+
+// Pós-Ordem
+echo "Pós-Ordem (E -> D -> R): [";
+foreach ($arvore->posOrdem() as $valor){
+    echo " $valor "; 
+}
+echo " ]\n";

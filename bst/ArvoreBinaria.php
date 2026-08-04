@@ -85,7 +85,7 @@ class ArvoreBinaria
         return $this->buscarRecursivo($this->raiz, $valor);
     }
 
-    private function buscarRecursivo(?NoArvore $noAtual, int $valor): bool
+    private function buscarRecursivo(?NoArvore $noAtual, mixed $valor): bool
     {
         // O valor não existe na árvore
         if($noAtual === null){
@@ -104,4 +104,69 @@ class ArvoreBinaria
 
         return $this->buscarRecursivo($noAtual->direita, $valor);
     }
+
+    // Travessias na Árvore (Percursos)
+
+    /**
+     * Percurso EM-ORDEM (In-Order)
+     * Visita: Esquerda -> Raiz -> Direita
+     * Resultado: Restorna os elementos em ordem crescente
+     */
+    public function emOrdem(): array
+    {
+        $resutado = [];
+        $this->emOrdemRecursivo($this->raiz, $resutado);
+        return $resutado;
+    }
+
+    private function emOrdemRecursivo(?NoArvore $no, array &$resutado): void
+    {
+        if($no !== null){
+            $this->emOrdemRecursivo($no->esquerda, $resutado);
+            $resutado[] = $no->valor; // Processa a Raiz
+            $this->emOrdemRecursivo($no->direita, $resutado);
+        }
+    }
+
+    /**
+     * Percurso PRÉ-ORDEM (Pre-Order)
+     * Visita: Raiz -> Esquerda -> Direita
+     */
+    public function preOrdem(): array
+    {
+        $resutado = [];
+        $this->preOrdemRecursivo($this->raiz, $resutado);
+        return $resutado;
+    }
+
+    private function preOrdemRecursivo(?NoArvore $no, array &$resultado): void
+    {
+        if($no !== null){
+            $resultado[] = $no->valor; // Processa a Raiz primeiro
+            $this->preOrdemRecursivo($no->esquerda, $resultado);
+            $this->preOrdemRecursivo($no->direita, $resultado);
+        }
+    }
+
+    /**
+     * Percurso PÓS-ORDEM (Post-Order)
+     * Visita: Esquerda -> Direita -> Raiz
+     */
+    public function posOrdem(): array
+    {
+        $resultado = [];
+        $this->posOrdemRecursivo($this->raiz, $resultado);
+        return $resultado;
+    }
+
+    private function posOrdemRecursivo(?NoArvore $no, array &$resultado): void
+    {
+        if($no !== null){
+            $this->posOrdemRecursivo($no->esquerda, $resultado);
+            $this->posOrdemRecursivo($no->direita, $resultado);
+            $resultado[] = $no->valor; // Processa a Raiz por último
+        }
+    }
+
+
 }
