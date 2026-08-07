@@ -52,3 +52,28 @@ foreach ($arvore->posOrdem() as $valor){
     echo " $valor "; 
 }
 echo " ]\n";
+echo "\n---------------------Remoção--------------------------\n\n";
+
+// Remover folha (20)
+echo "Removendo folha (20):\n";
+$arvore->remover(20);
+echo "Em-Ordem [";
+foreach ($arvore->emOrdem() as $valor){
+    echo " $valor "; 
+}
+echo " ]\n\n";
+
+$arvore->exibir();
+echo "\n\n";
+
+// Remover nó com 2 filhos (50 - a própria Raiz!)
+echo "Removendo a raiz original com 2 filhos (50):\n";
+$arvore->remover(50);
+echo "Em-Ordem [";
+foreach ($arvore->emOrdem() as $valor){
+    echo " $valor "; 
+}
+echo " ]\n\n";
+
+$arvore->exibir();
+echo "\n\n";
