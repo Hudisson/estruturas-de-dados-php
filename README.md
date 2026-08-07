@@ -27,8 +27,8 @@ O objetivo deste projeto é dominar os fundamentos de estruturas de dados, imple
 - [x] **Conjuntos (Sets)** - Estruturas de elementos únicos
 
 ### 🌳 Fase 4: Estruturas Não-Lineares (Avançado)
-- [ ] **Árvore Binária de Busca (BST)** - Estruturas hierárquicas e travessia | ⏳ *Em andamento*
-- [ ] **Grafos (Graphs)** - Nós, arestas e algoritmos de busca (BFS/DFS)
+- [x] **Árvore Binária de Busca (BST)** - Estruturas hierárquicas e travessia
+- [ ] **Grafos (Graphs)** - Nós, arestas e algoritmos de busca (BFS/DFS) | ⏳ *Em andamento*
 
 ---
 
