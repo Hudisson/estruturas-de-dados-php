@@ -134,9 +134,9 @@ class ArvoreBinaria
      */
     public function preOrdem(): array
     {
-        $resutado = [];
-        $this->preOrdemRecursivo($this->raiz, $resutado);
-        return $resutado;
+        $resultado = [];
+        $this->preOrdemRecursivo($this->raiz, $resultado);
+        return $resultado;
     }
 
     private function preOrdemRecursivo(?NoArvore $no, array &$resultado): void
@@ -166,6 +166,69 @@ class ArvoreBinaria
             $this->posOrdemRecursivo($no->direita, $resultado);
             $resultado[] = $no->valor; // Processa a Raiz por último
         }
+    }
+
+    /**
+     * Remove um valor da árvore.
+     * Retorna true se removeu com sucesso, ou false se o valor não existia.
+     */
+    public function remover(mixed $valor): bool
+    {
+        if(!$this->buscar($valor)){
+            return false;
+        }
+
+        $this->raiz = $this->removerRecursivo($this->raiz, $valor);
+        return true;
+    }
+
+    private function removerRecursivo(?NoArvore $noAtual, mixed $valor): ?NoArvore
+    {
+        if($noAtual === null){
+            return null;
+        }
+
+        // Navega até encontrar o nó
+        if($valor < $noAtual->valor){
+            $noAtual->esquerda = $this->removerRecursivo($noAtual->esquerda, $valor);
+        } else if($valor > $noAtual->valor){
+            $noAtual->direita = $this->removerRecursivo($noAtual->direita, $valor);
+        } else {
+            // Encontrou o nó a ser removido
+
+            // Sem filho à esquerda
+            if($noAtual->esquerda === null){
+                return $noAtual->direita;
+            }
+
+            // Sem filho à direita
+            if($noAtual->direita === null){
+                return $noAtual->esquerda;
+            }
+
+            // Nó com dois filhos
+            // Encontrar o menor valor na subárvore direita (sucessor)
+            $menorNo = $this->encontrarMenor($noAtual->direita);
+            $noAtual->valor = $menorNo->valor;
+
+            // Remove o sucessor duplicado da subárvore direita
+            $noAtual->direita = $this->removerRecursivo($noAtual->direita, $menorNo->valor);
+        }
+
+        return $noAtual;
+    }
+
+    /**
+     * Método auxiliar para encontrar o nó de menor valor em uma subárvore
+     */
+    private function encontrarMenor(NoArvore $no): NoArvore
+    {
+        $atual = $no;
+        while($atual->esquerda !== null){
+            $atual = $atual->esquerda;
+        }
+
+        return $atual;
     }
 
 
