@@ -118,4 +118,112 @@ class Grafo
         return $resultado;
     }
 
+    /**
+     * Encontra o caminho com o menor número de conexões (arestas) entre dois vértices.
+     * Retorna um array com a rota [Origem, ..., Destino] ou [] se não houver caminho.
+     */
+    public function caminhoMaisCurto(mixed $origem, mixed $destino): array
+    {
+        // Se a origem ou o destino não existirem no grafo, não há caminho.
+        if(!isset($this->listaAdjacencia[$origem]) || !isset($this->listaAdjacencia[$destino])){
+            return [];
+        }
+
+        // Se a origem for igual ao destino, o caminho é apenas ele mesmo.
+        if($origem === $destino){
+            return [$origem];
+        }
+
+        $visitados = [];
+        $predecessores = []; // Guarda de quem o vértice veio: chave = filho, valor = pai
+        $fila = new MinhaFila();
+
+        // Inicialização
+        $visitados[$origem] = true;
+        $fila->enqueue($origem);
+
+        $encontrou = false;
+
+        while(!$fila->isEmpty()){
+            $atual = $fila->dequeue();
+
+            // Se atingir o destino, encerra a busca.
+            if($atual === $destino){
+                $encontrou = true;
+                break;
+            }
+
+            // Explora os vizinhos do vértice atual.
+            foreach($this->listaAdjacencia[$atual] as $vizinho){
+                if(!isset($visitados[$vizinho])){
+                    $visitados[$vizinho] = true;
+                    $predecessores[$vizinho] = $atual; // Guarda quem trouxe até este vizinho.
+                    $fila->enqueue($vizinho);
+                }
+            }
+        }
+
+        // Se a fila esvaziou e não encontra o destino, os nós estão desconectados.
+        if (!$encontrou){
+            return [];
+        }
+
+        // Reconstruindo o caminho do Destino até a Origem (de trás para frente)
+        $caminhoInvertido = [];
+        $atual = $destino;
+
+        while($atual !== null){
+            $caminhoInvertido[] = $atual;
+            // Busca de onde veio. Se não houver predecessor (chegou na Origem), vira null.
+            $atual = $predecessores[$atual] ?? null;
+        }
+
+        // Inverte o array para ficar do início ao fim: [Origem -> ... -> Destino]
+        $caminhoFinal = [];
+        for($i = count($caminhoInvertido)-1; $i >=0; $i--){
+            $caminhoFinal[] = $caminhoInvertido[$i];
+        }
+
+        return $caminhoFinal;
+    }
+
+    /**
+     * Calcula e retorna o nível (distância/camada) de cada nó em relação ao nó inicial.
+     * Utiliza o BFS com controle de profundidade.
+     * Retorna um array associativo: [ 'NomeDoNo' => nivel (int) ]
+     */
+
+    public function obterNiveis(mixed $verticeInicio): array
+    {
+        // Se o vértice inicial não existir no grafo, retorna um array vazio.
+        if (!isset($this->listaAdjacencia[$verticeInicio])) {
+            return [];
+        }
+
+        $niveis = [];
+        $fila = new MinhaFila();
+
+        // O nó inicial começa no Nível 0
+        $niveis[$verticeInicio] = 0;
+        $fila->enqueue($verticeInicio);
+
+        while(!$fila->isEmpty()){
+            $atual = $fila->dequeue();
+            $nivelAtual = $niveis[$atual];
+
+            // Explora os vizinhos do nó atual.
+            foreach($this->listaAdjacencia[$atual] as $vizinho){
+                // Se o vizinho ainda não recebeu um nível, significa que não foi visitado.
+                if(!isset($niveis[$vizinho])){
+                    // O nível do vizinho é o nível do nó pai + 1
+                    $niveis[$vizinho] = $nivelAtual + 1;
+                    $fila->enqueue($vizinho);
+                }
+            }
+        }
+
+        return $niveis;
+    }
+
+
 }
