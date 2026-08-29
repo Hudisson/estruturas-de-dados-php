@@ -35,8 +35,6 @@ O objetivo deste projeto é dominar os fundamentos de estruturas de dados, imple
 ## 🛠️ Tecnologias Utilizadas
 - **Linguagem:** PHP 8.x+
 - **Paradigma:** Programação Orientada a Objetos (POO)
-- **Ferramentas de Teste:** PHPUnit (Opcional para o futuro)
-
 ---
 
 ## 🧑‍💻 Como Executar os Desafios
